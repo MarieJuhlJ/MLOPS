@@ -49,7 +49,19 @@ The directory structure of the project looks like this:
 └── tasks.py                  # Project tasks
 ```
 
-
 Created using [mlops_template](https://github.com/SkafteNicki/mlops_template),
 a [cookiecutter template](https://github.com/cookiecutter/cookiecutter) for getting
 started with Machine Learning Operations (MLOps).
+
+## Usage guide
+Preprocess data and save it:
+```python src/pumpkin_spice_cookie/data.py data/raw/corruptmnist data/processed ```
+
+Train and save a model ( lr, batchsize and epochs can be given as arguments)
+```python src/pumpkin_spice_cookie/train.py ```
+
+Evaluate model at location 'models/model.pth'
+```python src/pumpkin_spice_cookie/evaluate.py models/model.pth ```
+
+Make visualization:
+```python src/pumpkin_spice_cookie/visualize.py models/model.pth```
