@@ -1,11 +1,9 @@
 from torch.utils.data import Dataset
 import torch
 import numpy as np
-
-from pumpkin_spice_cookie.data import corrupt_mnist, normalize
-
 import os.path
 import pytest
+from pumpkin_spice_cookie.data import corrupt_mnist, normalize
 
 @pytest.mark.skipif(not os.path.exists("data/processed"), reason="Data files not found")
 def test_my_dataset():
