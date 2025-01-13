@@ -4,6 +4,10 @@ import numpy as np
 
 from pumpkin_spice_cookie.data import corrupt_mnist, normalize
 
+import os.path
+import pytest
+
+@pytest.mark.skipif(not os.path.exists("data/processed"), reason="Data files not found")
 def test_my_dataset():
     """Test the MyDataset class."""
     dataset_train, dataset_test = corrupt_mnist()
@@ -20,6 +24,6 @@ def test_my_dataset():
 def test_normalize():
     """Test the normalize function."""
     images = torch.randn(10, 1, 28, 28)
-    images_normalized = normalize(images)
+    images_normalized = normalize(images)   
     assert torch.allclose(images_normalized.mean(), torch.tensor(0.), atol=1e-2)
     assert torch.allclose(images_normalized.std(), torch.tensor(1.), atol=1e-2)
