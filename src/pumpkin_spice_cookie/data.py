@@ -4,9 +4,11 @@ import torch
 import typer
 from torch.utils.data import Dataset
 
+
 def normalize(images: torch.Tensor) -> torch.Tensor:
     """Normalize images."""
     return (images - images.mean()) / images.std()
+
 
 def preprocess_data(raw_dir: str, processed_dir: str) -> None:
     """Process raw data and save it to processed directory."""
@@ -44,20 +46,6 @@ def corrupt_mnist() -> tuple[torch.utils.data.Dataset, torch.utils.data.Dataset]
     train_set = torch.utils.data.TensorDataset(train_images, train_target)
     test_set = torch.utils.data.TensorDataset(test_images, test_target)
     return train_set, test_set
-
-class MyDataset(Dataset):
-    """My custom dataset."""
-
-    def __init__(self, raw_data_path: Path) -> None:
-        """Initialize the dataset."""
-        self.train_set, self.test_set = corrupt_mnist()
-
-    def __len__(self) -> int:
-        """Return the length of the dataset."""
-
-    def __getitem__(self, index: int):
-        """Return a given sample from the dataset."""
-
 
 if __name__ == "__main__":
     typer.run(preprocess_data)

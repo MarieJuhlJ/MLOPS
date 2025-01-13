@@ -10,9 +10,10 @@ COPY requirements.txt requirements.txt
 COPY pyproject.toml pyproject.toml
 COPY src/ src/
 COPY data/ data/
+COPY models/ models/
 
 WORKDIR /
 RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt
 RUN pip install . --no-deps --no-cache-dir
 
-ENTRYPOINT ["python", "-u", "src/pumpkin_spice_cookie/train.py"]
+ENTRYPOINT ["python", "-u", "src/pumpkin_spice_cookie/evaluate.py"]
