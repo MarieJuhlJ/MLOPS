@@ -1,6 +1,8 @@
-from pumpkin_spice_cookie.model import MyAwesomeModel
-import torch
 import pytest
+import torch
+
+from pumpkin_spice_cookie.model import MyAwesomeModel
+
 
 def test_my_model():
     model = MyAwesomeModel()
