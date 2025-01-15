@@ -5,7 +5,7 @@ import pytest
 import torch
 from torch.utils.data import Dataset
 
-from pumpkin_spice_cookie.data import corrupt_mnist, normalize
+from src.pumpkin_spice_cookie.data import corrupt_mnist, normalize
 
 
 @pytest.mark.skipif(not os.path.exists("data/processed"), reason="Data files not found")
