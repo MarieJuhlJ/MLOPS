@@ -1,0 +1,14 @@
+# Ignore the .git directory
+.git
+.github
+.pytest_cache
+.ruff_cache
+.vscode
+dockerfiles
+docs
+notebooks
+
+
+# Ignore temporary files
+*.log
+*.tmp

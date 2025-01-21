@@ -32,6 +32,7 @@ def visualize(model_checkpoint: str, figure_name: str = "embeddings.png") -> Non
         print("Reducing dimensionality of embeddings with PCA")
         pca = PCA(n_components=100)
         embeddings = pca.fit_transform(embeddings)
+
     print("Reducing dimensionality of embeddings with t-SNE")
     tsne = TSNE(n_components=2)
     embeddings = tsne.fit_transform(embeddings)
